@@ -1,6 +1,7 @@
 To run frontend:
 
 `cd vacay-finder`
+
 `npm run dev`
 
 To run backend:
