@@ -1,0 +1,8 @@
+# any private files
+/private
+
+# pycache
+/__pycache__
+
+# dependencies
+/Lib
