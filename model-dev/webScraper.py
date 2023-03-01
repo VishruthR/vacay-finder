@@ -1,10 +1,12 @@
 import scrapy
-
+from bs4 import BeautifulSoup
 class BlogSpider(scrapy.Spider):
     name = 'blogspider'
-    start_urls = ['https://www.zyte.com/blog/']
+    start_urls = ['https://nomadlist.com/']
 
     def parse(self, response):
+        print(response)
+        # soup = BeautifulSoup(response, 'html.parser')
         for title in response.css('.oxy-post-title'):
             yield {'title': title.css('::text').get()}
 
