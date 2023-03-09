@@ -10,6 +10,9 @@
 # Reference link:
 # https://github.com/SpencerPao/Data_Science/blob/main/Recommendation%20Systems/Recommendation_System.ipynb
 
+
+# Other potential reference: Building a City Recommender for Nomads
+# https://www.datarevenue.com/en-blog/building-a-city-recommender-for-nomads
 # Adapted from colab display
 
 
