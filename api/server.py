@@ -21,9 +21,9 @@ def predict():
     # print(data)
     data = request.json['cities']
 
-    # prediction = model.make_prediction(data)
+    prediction = model.make_prediction(data)
 
-    return jsonify(data)
+    return jsonify(prediction.to_dict('dict'))
 
     
 
