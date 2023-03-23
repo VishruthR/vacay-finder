@@ -8,16 +8,36 @@ import {
     Stack,
     HStack,
     VStack,
+    Flex,
   } from '@chakra-ui/react';
   import { CheckIcon } from '@chakra-ui/icons';
+  import { ReactElement } from 'react';
   
-  // Replace test data with your own
-  const features = Array.apply(null, Array(4)).map(function (x, i) {
-    return {
-        id: i,
-        title: 'Travel Dates',
-    };
-  });
+  // // Replace test data with your own
+  // const features = Array.apply(null, Array(4)).map(function (x, i) {
+  //   return {
+  //       id: i,
+  //       title: 'Travel Dates',
+  //   };
+  // });
+
+  interface FeatureProps {
+    title: string;
+    icon: ReactElement;
+  }
+
+  const Feature = ({ title, icon }: FeatureProps) => {
+    return (
+      <HStack align={'top'}>
+        <Box color={'green.400'} px={2}>
+          <Icon as={CheckIcon} />
+        </Box>
+        <VStack align={'start'}>
+          <Text fontWeight={600}>{title}</Text>
+        </VStack>
+      </HStack>
+    );
+  };
   
   export default function Features() {
     return (
@@ -31,7 +51,39 @@ import {
   
         <Container maxW={'6xl'} mt={10} marginBottom={16}>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
-            {features.map((feature) => (
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Travel Dates'}
+          />
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Budget'}
+          />
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Preferred Activities'}
+          />
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Climate'}
+          />
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Accommodation Style'}
+          />
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Transportation Options'}
+          />
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Local Cuisine'}
+          />
+          <Feature
+            icon={<Icon as={CheckIcon}/>}
+            title={'Other Specific Details'}
+          />
+            {/* {features.map((feature) => (
               <HStack key={feature.id} align={'top'}>
                 <Box color={'green.400'} px={2}>
                   <Icon as={CheckIcon} />
@@ -40,7 +92,7 @@ import {
                   <Text fontWeight={600}>{feature.title}</Text>
                 </VStack>
               </HStack>
-            ))}
+            ))} */}
           </SimpleGrid>
         </Container>
       </Box>

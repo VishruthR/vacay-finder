@@ -58,20 +58,22 @@ import {
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}>
             <Stack direction={'row'}>
-                <Image
-                borderRadius='full'
-                boxSize='50px'
-                src="/logo.png" 
-                alt="Logo"
-                
-                />
-                <Image
-                    w={108}
-                    h={33}
-                    marginTop={20}
-                    src="/logo2.png" 
-                    alt="VacayFinder"
-                />
+                <Link href="/">
+                  <Image
+                  borderRadius='full'
+                  boxSize='50px'
+                  src="/logo.png" 
+                  alt="Logo"
+                  />
+                </Link>
+                <Link href="/">
+                  <Image
+                      w={108}
+                      h={45}
+                      src="/logo2.png" 
+                      alt="VacayFinder"
+                  />
+                </Link>
             </Stack>
             </Text>
   
