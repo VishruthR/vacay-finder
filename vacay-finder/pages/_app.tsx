@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import Navbar from "@/components/Navbar"
 import Footer from '@/components/Footer'
+import { Marcellus_SC } from '@next/font/google'
 
 const fonts = {
   heading: 'Marcellus_SC'

@@ -14,6 +14,7 @@ import { Marcellus_SC } from '@next/font/google';
       <Flex
         w={'full'}
         h={'100vh'}
+        // marginTop={-20}
         backgroundImage={
           "/Vacation.jpeg"
         }

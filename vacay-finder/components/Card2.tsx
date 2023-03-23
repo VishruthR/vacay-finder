@@ -6,10 +6,9 @@ import {
     Text,
     Stack,
     Image,
+    SimpleGrid,
+    Container,
   } from '@chakra-ui/react';
-  
-  const IMAGE =
-    '/tokyo.jpeg';
 
   interface FeatureProps {
     image: string;
@@ -19,28 +18,7 @@ import {
 
   const Feature = ({ image, city, country }: FeatureProps) => {
     return (
-      <Stack pt={10} align={'center'}>
-        <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-            {city}
-          </Text>
-          <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-            {country}
-          </Heading>
-          <Stack direction={'row'} align={'center'}>
-            <Text fontWeight={800} fontSize={'xl'}>
-              $399
-            </Text>
-            <Text textDecoration={'line-through'} color={'gray.600'}>
-              $599
-            </Text>
-          </Stack>
-      </Stack>
-    );
-  };
-  
-  export default function Card() {
-    return (
-      <Center py={12}>
+        <Center py={12}>
         <Box
           role={'group'}
           p={6}
@@ -64,7 +42,7 @@ import {
               pos: 'absolute',
               top: 5,
               left: 0,
-              backgroundImage: `url(${IMAGE})`,
+              backgroundImage: `url(${image})`,
               filter: 'blur(15px)',
               zIndex: -1,
             }}
@@ -78,22 +56,17 @@ import {
               height={230}
               width={282}
               objectFit={'cover'}
-              src={IMAGE}
+              src={image}
             />
           </Box>
-          {/* <Stack pt={10} align={'center'}> */}
-            <Feature
-              image={'/tokyo.jpeg'}
-              city={'Tokyo'}
-              country={'Japan'}
-            />
-            {/* <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-              Tokyo
+          <Stack pt={10} align={'center'}>
+            <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+              {city}
             </Text>
             <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-              Japan
+              {country}
             </Heading>
-            <Stack direction={'row'} align={'center'}>
+            {/* <Stack direction={'row'} align={'center'}>
               <Text fontWeight={800} fontSize={'xl'}>
                 $399
               </Text>
@@ -101,8 +74,45 @@ import {
                 $599
               </Text>
             </Stack> */}
-          {/* </Stack> */}
+          </Stack>
         </Box>
       </Center>
+    );
+  };
+  
+  export default function Card2() {
+    return (
+        <SimpleGrid columns={3} spacing={5}>
+            <Feature
+                image={'/paris.jpeg'}
+                city={'Paris'}
+                country={'France'}
+            />
+            <Feature
+                image={'/tokyo.jpeg'}
+                city={'Tokyo'}
+                country={'Japan'}
+            />
+            <Feature
+                image={'/dubai.jpeg'}
+                city={'Dubai'}
+                country={'United Arab Emirates'}
+            />
+            <Feature
+                image={'/sydney.jpeg'}
+                city={'Sydney'}
+                country={'Australia'}
+            />
+            <Feature
+                image={'/agra.jpeg'}
+                city={'Agra'}
+                country={'India'}
+            />
+            <Feature
+                image={'/bali.jpeg'}
+                city={'Bali'}
+                country={'Indonesia'}
+            />
+        </SimpleGrid>
     );
   }
