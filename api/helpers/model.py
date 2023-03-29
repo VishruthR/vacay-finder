@@ -3,13 +3,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 class PredictionModel:
     def __init__(self):
-        self.norm_df = pd.read_csv('https://s3.us-east-2.amazonaws.com/www.findingmyschittscreek.com/Data/normalized_df_sub.csv', index_col=0)
+        self.norm_df = pd.read_csv('./cleaned_city_temperatures.csv', index_col=0)
 
-    def from_city_cosSim(self, data, name):
+    def from_city_cosSim(data, name):
         try:
-            Xs = data[data.City == name].drop('City',1)
+            Xs = data[data.City == name].drop(columns=['City'], axis=1)
             Col_A = data[data.City != name].City
-            Ys = data[data.City != name].drop('City',1)
+            Ys = data[data.City != name].drop(columns=['City'], axis=1)
 
             cosSim = cosine_similarity(X=Xs,Y=Ys)
             sim = list(cosSim[0])

@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
-import pymongo
+# import pymongo
 import private.credentials as creds
 from helpers.model import PredictionModel
 
 app = Flask(__name__)
 
-client = pymongo.MongoClient("mongodb+srv://" + creds.username + ":<" + creds.password + ">@cluster0.vgbagff.mongodb.net/?retryWrites=true&w=majority")
-db = client.test
+# client = pymongo.MongoClient("mongodb+srv://" + creds.username + ":<" + creds.password + ">@cluster0.vgbagff.mongodb.net/?retryWrites=true&w=majority")
+# db = client.test
 
 model = PredictionModel()
 
