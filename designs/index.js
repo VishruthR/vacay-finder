@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import logo from './img/paper-plane.png'
+import Select from './../components/Select.js'
 
 class Banner extends React.Component{
     render(){
@@ -29,7 +30,7 @@ class Banner extends React.Component{
 }
 
 const Home = () =>{
-    return (<div><Banner /></div>);
+    return (<div><Banner /><Select /></div>);
 };
 
 export default Home
