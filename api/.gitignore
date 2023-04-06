@@ -8,3 +8,6 @@
 /Lib
 /Scripts
 /share
+
+# All csvs
+*.csv
