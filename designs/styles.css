@@ -176,3 +176,74 @@ h1{
     background-color: #ff8819;
     color: white;
 }
+
+
+/* End Screen Styling*/
+
+.endList{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    color: #5f5f5f;
+    transform: translate(0px, 10px);
+    opacity: 0;
+    animation: fadeinUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.endScreenList{
+    margin-bottom: 30px;
+}
+
+@keyframes fadeinUp {
+    100%{
+        transform: translate(0px, 10px);
+        opacity: 1;
+    }    
+}
+.fadeinup{
+    transform: translate(0px, -10px);
+    animation: fadeinUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#first-elem{
+    animation-delay: 500ms;
+}
+
+#second-elem{
+    animation-delay: 900ms;
+}
+
+#third-elem{
+    animation-delay: 1200ms;
+}
+
+#fourth-elem{
+    animation-delay: 1400ms;
+}
+
+#fifth-elem{
+    animation-delay: 1500ms;
+}
+
+#end-splash{
+    animation: carousel 10000ms 500ms forwards infinite;
+    background-image: url(img/paris.jpg)
+}
+
+@keyframes carousel {
+    0%{
+        background-image: url(img/paris.jpg);
+    }
+    20%{
+        background-image: url(img/japan.webp);
+    }
+    40%{
+        background-image: url(img/turkey.jpg);
+    }
+    60%{
+        background-image: url(img/paris.jpg);
+    }
+    80%{
+        background-image: url(img/paris.jpg);
+    }
+}
