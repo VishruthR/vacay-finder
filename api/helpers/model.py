@@ -3,15 +3,26 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 class PredictionModel:
     def __init__(self):
-        self.norm_df = pd.read_csv('./cleaned_city_temperatures.csv', index_col=0)
+        self.none = "none"
 
-    def from_city_cosSim(self, name):
+    def from_city_cosSim(self, name, db):
+        cities = db.Cities
         try:
-            Xs = self.norm_df[self.norm_df.City == name].drop(columns=['City'], axis=1)
-            Col_A = self.norm_df[self.norm_df.City != name].City
-            Ys = self.norm_df[self.norm_df.City != name].drop(columns=['City'], axis=1)
+            curr_city = cities.find_one({"name" : name})       
+
+            Xs = pd.DataFrame([[float(x) for x in curr_city['temperatures']]])
+
+            Col_A = []
+            Ys = []
+
+            for city in cities.find({"name" : {"$ne": name}}):
+                Col_A.append(city['name'])
+                Ys.append([float(x) for x in city['temperatures']])
+
+            Ys = pd.DataFrame(Ys)
 
             cosSim = cosine_similarity(X=Xs,Y=Ys)
+
             sim = list(cosSim[0])
             cty = list(Col_A)
             comb = {"City":cty,"Similarity":sim}
@@ -20,37 +31,22 @@ class PredictionModel:
             # Adding a row with the Y City
             currCity = {"City":name,"Similarity":1}
             curr = pd.DataFrame(currCity, index=[0])
-
+            
             # Concatenate to finalize DF
             dfdf = pd.concat([dfdf,curr], sort=False).reset_index(drop=True).drop('index',1)
-            return(dfdf)
+
+            return dfdf
         except:
             print("Wrong input: this entry will be ignored")
     
-    def make_prediction(self, userCities, numShow=10):
+    def make_prediction(self, userCities, db, numShow=10):
         # create class that defines cities
         class rated_city:
             def __init__(self, city):
                 self.city = city
         
-        #Loop to input cities based on the user
-        # add_city = True
-        # w = 0
-        # while add_city == True:
-        #     city_name = input("City (Include state - Ex. New York, NY): ")
-        #     userInput.append(city_name)
-        #     simSim = self.from_city_cosSim(data=self.norm_df, name=city_name)
-        #     try:
-        #         cosSim = cosSim.merge(simSim, how='inner', on='City')
-        #     except:
-        #         cosSim = simSim
-            
-        #     city = rated_city(city_name)
-        #     cont = input("Do you want to include another city?")
-        #     add_city = cont.lower() in ['yes','true','of course','y','si','1']
-        #     w+=1
         for city in userCities:
-            simSim = self.from_city_cosSim(name=city)
+            simSim = self.from_city_cosSim(city, db)
             try:
                 cosSim = cosSim.merge(simSim, how='inner', on='City')
             except:
