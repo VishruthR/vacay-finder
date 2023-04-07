@@ -3,6 +3,7 @@ import {
     Flex,
     Button,
     Heading,
+    Link,
     Text,
     VStack,
     useBreakpointValue,
@@ -58,6 +59,7 @@ import { Marcellus_SC } from '@next/font/google';
               Welcome to VacayFinder, the ultimate destination for travelers seeking personalized vacation recommendations
             </Text>
             <Stack direction={'row'}>
+            <Link href="/recommender">
               <Button
                 marginTop={5}
                 bg={'orange.400'}
@@ -67,6 +69,7 @@ import { Marcellus_SC } from '@next/font/google';
                 _hover={{ bg: 'orange.500' }}>
                 Get Started
               </Button>
+              </Link>
             </Stack>
           </Stack>
         </VStack>
