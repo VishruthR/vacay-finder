@@ -35,7 +35,7 @@ def serpapi_get_google_images():
             "tbm": "isch",                    # image results
             "num": "100",                     # number of images per page
             "ijn": 0,                         # page number: 0 -> first page, 1 -> second...
-            "api_key": "a505d83e905e7c7367e0c58932b6d1180ad19736adac7aa0d922f69951d79c01",                 # https://serpapi.com/manage-api-key
+            "api_key": "...",                 # https://serpapi.com/manage-api-key
             # other query parameters: hl (lang), gl (country), etc  
         }
     
