@@ -41,6 +41,18 @@ def populate():
     cities = db.Cities
 
     deleteRes = cities.delete_many({})
+    cityImages = {}
+
+    with open('links.csv', newline='') as linksfile:
+        reader = csv.reader(linksfile, delimiter='\n')
+        
+        for row in reader:
+            dataRow = row[0].split(',')
+            if(dataRow[1] == 'link'):
+                continue
+            
+            cityImages[dataRow[0]] = dataRow[1]
+
 
     # Parse csv
     data = []
@@ -54,13 +66,14 @@ def populate():
                 continue
             
             document['name'] = dataRow[1]
+            document['image'] = cityImages[dataRow[1]]
             document['temperatures'] = dataRow[2:]
         
             data.append(document)
     
     insertRes = cities.insert_many(data)
 
-    return jsonify(insertRes)
+    return "success"
 
     
 
