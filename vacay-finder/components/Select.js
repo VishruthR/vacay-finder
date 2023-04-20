@@ -1,53 +1,35 @@
-import React from 'react';
+import { Button, Grid, GridItem, HStack, Image } from "@chakra-ui/react";
+import React, { useState } from "react";
 
-var chosen = 0;
-var lists = [];
+const Select = ({ first, second, onSelectFirst, onSelectSecond }) => {
+  return (
+    <div>
+      <div className="select-container">
+        <div
+          className="select-left"
+          style={{ backgroundImage: `url(${first.image})` }}
+        >
+          <div className="select-button-1">
+            <h2 id="first-option">{first.name}</h2>
+            <Button colorScheme="orange" onClick={onSelectFirst}>
+              Take me here!
+            </Button>
+          </div>
+        </div>
+        <div
+          className="select-right"
+          style={{ backgroundImage: `url(${second.image})` }}
+        >
+          <div className="select-button-2">
+            <h2 id="second-option">{second.name}</h2>
+            <Button colorScheme="orange" onClick={onSelectSecond}>
+              Take me here!
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-function ChooseFirst(){
-    if(chosen === 10) return;
-    chosen++;
-    var first = document.getElementById("first-option").innerHTML;
-    lists.push(first)
-    console.log("Selected "+first)
-    if(chosen === 10){
-        console.log(lists)
-        // SendData();
-    }
-}
-
-function ChooseSecond(){
-    if(chosen === 10) return;
-    chosen++;
-    var second = document.getElementById("second-option").innerHTML;
-    lists.push(second)
-    console.log("Selected "+second)
-    if(chosen === 10){
-        console.log(lists)
-    }
-}
-
-class Navbar extends React.Component{
-    render(){
-        return (
-            <div>
-            <div className="select-container">
-                <div className="select-left">
-                    <div className='select-button-1'>
-                        <h2 id="first-option">Japan</h2>
-                        <button id="button-1" onClick={ChooseFirst}>Select</button>
-                    </div>
-                </div>
-                <div className="select-right">
-                    <div className='select-button-2'>
-                        <h2 id="second-option">Paris</h2>
-                        <button id="button-2" onClick={ChooseSecond}>Select</button>
-                    </div>
-
-                </div>
-            </div>
-            </div>
-            );
-    }
-}
-
-export default Navbar
+export default Select;
