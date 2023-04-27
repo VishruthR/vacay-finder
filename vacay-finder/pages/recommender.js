@@ -1,6 +1,7 @@
-import { Text } from "@chakra-ui/react";
+import { Skeleton, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
 import React, { useEffect, useMemo, useState } from "react";
+import RecommendationView from "../components/ReccomendationView.jsx";
 import Select from "../components/Select.js";
 
 const VacationPicker = () => {
@@ -33,13 +34,11 @@ const VacationPicker = () => {
   function handleSelectFirst() {
     let city = firstCity.name;
     setPickedCities([...pickedCities, city]);
-    console.log(pickedCities);
   }
 
   function handleSelectSecond() {
     let city = secondCity.name;
     setPickedCities([...pickedCities, city]);
-    console.log(pickedCities);
   }
 
   useEffect(() => {
@@ -69,11 +68,13 @@ const VacationPicker = () => {
           onSelectSecond={handleSelectSecond}
         />
       ) : (
-        <>
-          {finalRecommendations.map((rec) => (
-            <Text key={`${rec}`}>{rec}</Text>
-          ))}
-        </>
+        <div>
+          {finalRecommendations.length > 0 ? (
+            <RecommendationView cities={finalRecommendations} />
+          ) : (
+            <Skeleton />
+          )}
+        </div>
       )}
     </>
   );
