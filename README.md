@@ -7,18 +7,13 @@ Vacay Finder is a website that guides users to their perfect travel destination.
 
 
 ## Instructions
-Prerequisites:
-
-Next.js
-
-Flask
-
-
+First clone the repository using git clone.
 
 To run frontend:
 
 ```
 cd vacay-finder
+npm i
 npm run dev
 ```
 
@@ -31,6 +26,7 @@ Set up db connection:
 
 ```
 cd api
+pip install -r requirements.txt
 ```
 
 Start up the python virtual environment.
@@ -38,6 +34,8 @@ Start up the python virtual environment.
 ```
 flask --app server run
 ```
+
+The app should be ready to run!
 
 ## Group Members and Roles
 
