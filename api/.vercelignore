@@ -4,6 +4,5 @@
 /Lib
 /include
 /__pycache__
-cleaned_city_temperatures.csv
-links.csv
-images.ipynb
+*.csv
+*.ipynb

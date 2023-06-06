@@ -4,13 +4,14 @@ from pymongo import MongoClient
 from helpers.model import PredictionModel
 import csv
 import random
+import os
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['TESTING'] = True
 CORS(app)
 
-client = MongoClient("mongodb+srv://" + creds.username + ":" + creds.password + "@cluster0.vgbagff.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://" + os.environ.get('MONGO_USERNAME') + ":" + os.environ.get('MONGO_PASSWORD') + "@cluster0.vgbagff.mongodb.net/?retryWrites=true&w=majority")
 db = client.VacayFinderDB
 
 model = PredictionModel()
