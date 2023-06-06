@@ -3,6 +3,7 @@ import { useRouter } from "next/router.js";
 import React, { useEffect, useMemo, useState } from "react";
 import RecommendationView from "../components/ReccomendationView.jsx";
 import Select from "../components/Select.js";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 const VacationPicker = () => {
   const router = useRouter();
@@ -72,7 +73,7 @@ const VacationPicker = () => {
           {finalRecommendations.length > 0 ? (
             <RecommendationView cities={finalRecommendations} />
           ) : (
-            <Skeleton />
+            <LoadingScreen />
           )}
         </div>
       )}

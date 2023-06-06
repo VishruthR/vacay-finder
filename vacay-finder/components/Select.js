@@ -11,7 +11,11 @@ const Select = ({ first, second, onSelectFirst, onSelectSecond }) => {
         >
           <div className="select-button-1">
             <h2 id="first-option">{first.name}</h2>
-            <Button colorScheme="orange" onClick={onSelectFirst}>
+            <Button
+              borderRadius="30px"
+              colorScheme="orange"
+              onClick={onSelectFirst}
+            >
               Take me here!
             </Button>
           </div>
@@ -22,7 +26,11 @@ const Select = ({ first, second, onSelectFirst, onSelectSecond }) => {
         >
           <div className="select-button-2">
             <h2 id="second-option">{second.name}</h2>
-            <Button colorScheme="orange" onClick={onSelectSecond}>
+            <Button
+              borderRadius="30px"
+              colorScheme="orange"
+              onClick={onSelectSecond}
+            >
               Take me here!
             </Button>
           </div>
