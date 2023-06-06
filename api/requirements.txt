@@ -99,7 +99,6 @@ rsa==4.7.2
 s3transfer==0.6.0
 scikit-learn==1.2.2
 scipy==1.10.1
-Scrapy==2.8.0
 service-identity==21.1.0
 six==1.16.0
 soupsieve==2.4
