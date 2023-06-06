@@ -1,0 +1,13 @@
+# any private files
+/api/private
+
+# pycache
+/api/__pycache__
+
+# dependencies
+/api/Lib
+/api/Scripts
+/api/share
+
+# All csvs
+*.csv
