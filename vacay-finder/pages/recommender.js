@@ -15,7 +15,7 @@ const VacationPicker = () => {
   const getFinalRecommendations = async () => {
     const postData = { cities: pickedCities };
 
-    const response = await fetch("http://localhost:5000/predict", {
+    const response = await fetch("https://vacayfinder-api.vercel.app/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,9 +44,12 @@ const VacationPicker = () => {
 
   useEffect(() => {
     const getNewCity = async (setCity) => {
-      const response = await fetch("http://localhost:5000/get-city-random", {
-        method: "GET",
-      });
+      const response = await fetch(
+        "https://vacayfinder-api.vercel.app/get-city-random",
+        {
+          method: "GET",
+        }
+      );
       const data = await response.json();
       setCity(data);
     };

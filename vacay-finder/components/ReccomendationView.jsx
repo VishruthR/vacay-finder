@@ -35,7 +35,7 @@ const RecommendationView = ({ cities }) => {
 
     cities.map(async (city) => {
       const response = await fetch(
-        `http://localhost:5000/get-city?name=${city}`,
+        `https://vacayfinder-api.vercel.app/get-city?name=${city}`,
         {
           method: "GET",
           headers: {
