@@ -18,6 +18,7 @@ model = PredictionModel()
 @app.route('/')
 @cross_origin()
 def hello():
+    print(f"TESTING TESTING {os.environ.get('TEST_VAR')}")
     return '<h1>Hello, World!</h1>'
 
 @app.route('/predict', methods=['POST'])
