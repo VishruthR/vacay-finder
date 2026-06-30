@@ -11,3 +11,5 @@
 
 # All csvs
 *.csv
+.vercel
+.env*
