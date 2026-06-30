@@ -10,5 +10,10 @@
       "src": "/(.*)",
       "dest": "app.py"
     }
-  ]
+  ],
+  "functions": {
+    "api/app.py": {
+      "runtime": "@vercel/python@<version that uses 3.11 or earlier>"
+    }
+  }
 }
