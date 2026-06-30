@@ -6,10 +6,13 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Footer from "@/components/Footer";
 import { Marcellus_SC } from "@next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { API_URL } from "@/constants"
 
 import dynamic from "next/dynamic";
 
 const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
+
+console.log("api url: ", API_URL);
 
 const fonts = {
   heading: "Marcellus_SC",

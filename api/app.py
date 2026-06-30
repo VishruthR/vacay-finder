@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import private.credentials as creds
 from pymongo import MongoClient
 from helpers.model import PredictionModel
 import csv

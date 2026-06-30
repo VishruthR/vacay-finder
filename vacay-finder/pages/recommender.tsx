@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import RecommendationView from "../components/ReccomendationView.jsx";
 import Select from "../components/Select.js";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+import { API_URL } from "@/constants"
 
 const VacationPicker = () => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const VacationPicker = () => {
   const getFinalRecommendations = async () => {
     const postData = { cities: pickedCities };
 
-    const response = await fetch("https://vacayfinder-api.vercel.app/predict", {
+    const response = await fetch(`${API_URL}/predict`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,8 +45,9 @@ const VacationPicker = () => {
 
   useEffect(() => {
     const getNewCity = async (setCity) => {
+      console.log("test", `${API_URL}/get-city-random`)
       const response = await fetch(
-        "https://vacayfinder-api.vercel.app/get-city-random",
+        `${API_URL}/get-city-random`,
         {
           method: "GET",
         }

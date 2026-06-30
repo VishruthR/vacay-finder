@@ -12,6 +12,7 @@ import {
   extendTheme,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { API_URL } from "@/constants";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const customTheme = extendTheme({
@@ -35,7 +36,7 @@ const RecommendationView = ({ cities }) => {
 
     cities.map(async (city) => {
       const response = await fetch(
-        `https://vacayfinder-api.vercel.app/get-city?name=${city}`,
+        `${API_URL}/get-city?name=${city}`,
         {
           method: "GET",
           headers: {
