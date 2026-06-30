@@ -41,11 +41,12 @@ class PredictionModel:
             curr = pd.DataFrame(currCity, index=[0])
             
             # Concatenate to finalize DF
-            dfdf = pd.concat([dfdf,curr], sort=False).reset_index(drop=True).drop('index',1)
+            dfdf = pd.concat([dfdf,curr], sort=False).reset_index(drop=True).drop(index=1)
 
             return dfdf
-        except:
+        except Exception as e:
             print("Wrong input: this entry will be ignored")
+            print(e)
     
     def make_prediction(self, userCities, db, numShow=10):
         # create class that defines cities
@@ -60,7 +61,7 @@ class PredictionModel:
             except:
                 cosSim = simSim
         
-        simCols = cosSim.drop("City",1)
+        simCols = cosSim.drop(labels="City", axis=1)
         cits = cosSim.City
             
         for i, row in simCols.iterrows():
