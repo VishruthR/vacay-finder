@@ -12,8 +12,6 @@ import dynamic from "next/dynamic";
 
 const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
 
-console.log("api url: ", API_URL);
-
 const fonts = {
   heading: "Marcellus_SC",
 };
