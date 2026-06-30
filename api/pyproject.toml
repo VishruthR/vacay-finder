@@ -8,6 +8,5 @@ dependencies = [
     "numpy==1.26.4",
     "pandas==2.2.1",
     "pymongo==4.3.3",
-    "scikit-learn==1.2.2",
     "werkzeug==2.2.3",
 ]

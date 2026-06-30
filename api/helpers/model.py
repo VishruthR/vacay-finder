@@ -1,5 +1,13 @@
+import numpy as np
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
+
+
+def cosine_similarity(X, Y):
+    X = np.asarray(X, dtype=float)
+    Y = np.asarray(Y, dtype=float)
+    X_norm = X / np.linalg.norm(X, axis=1, keepdims=True)
+    Y_norm = Y / np.linalg.norm(Y, axis=1, keepdims=True)
+    return X_norm @ Y_norm.T
 
 class PredictionModel:
     def __init__(self):
